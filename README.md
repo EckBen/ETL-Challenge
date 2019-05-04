@@ -32,6 +32,11 @@ We want to start an online baseball memorabilia/apparel store. In order to be su
 
 
 ## Final Schema / Data Model / How  to use the data
+The final data model creates distinct FACT tables from each of the data sources extracted (pitchers, hitters, ebay team items, ebay player items) and a DIM table for team acronym/team name.  Separate Views were created for reporting purposes.
+- “Combined” unions together pitchers and hitters, joins team name and eliminates unnecessary columns.
+- “Player Sales” joins the “combined” with the ebay player items.
+- “Team sales” joins the “combined” with the ebay team items.
+Ultimately the data would be used to determine which team(s) and player(s) have the greatest number of items being sold throughout ebay which we would then stock on our ebay store.  A simple analysis would be to look at the player/team volume trends and stock those items.  Another analysis would be correlating player/team stats with ebay volume and stock/price items where statistics are trending upwards.
 
 ## Data Sources
 We used baseball-reference.com for the current player and statistical information.  baseball-reference.com is recognized as a leader in baseball player statistics gathering and archiving.  The assumption of this data is that it is updated on a daily basis.  We would only run this process once per week, since significant statistical changes don’t happen daily.  We also scraped all team names in MLB from mlb.com. This keeps our program up to date whether teams become inactive or new teams are created/renamed, assuming the official MLB website is up to date. EBay.com was used to get the number items that are for sale at any given point.  EBay was chosen since there are numerous sellers that we can pull from.  Additionally, we were able to scrape the data we needed.
@@ -54,3 +59,6 @@ Player_Cleaner.py	Split out name from name id
 	- Uses .csv from Player_Cleaner.py
 	- Scrapes ebay for each player in .csv
 	- Outputs .csv with results
+4. MLB_SALES-Create-Database
+	- Creates database
+	- Creates views for analysis
