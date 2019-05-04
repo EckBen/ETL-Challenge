@@ -10,7 +10,7 @@ def finder(search_term):
     browser.find_by_id('gh-btn').click()
     search_result_soup = souper()
     results_text = search_result_soup.find('h1', class_='srp-controls__count-heading').get_text()
-    results_number = int(results_text.replace(' results','').replace(',',''))
+    results_number = int(results_text.replace(' result','').replace('s','').replace(',',''))
     return results_number
 
 # Makes soup
