@@ -27,7 +27,7 @@ hitters_name_df = hitters_df['Name']
 pitchers_name_df = pitchers_df['Name']
 players_df = pd.concat([hitters_name_df,pitchers_name_df])
 players_df = players_df.drop_duplicates()
-players_df.to_csv('Output/players.csv', index = False, header = True)
+players_df.to_csv(os.path.join("Output","players.csv"), index = False, header = True)
 
 #hitters for MySQL Load 
 #add timestamp
@@ -39,7 +39,7 @@ hitters_final_df = hitters_df[['Name','Tm','R','H','2B','3B','HR','RBI','BA','OB
 #remove duplicates
 hitters_final_df = hitters_final_df.drop_duplicates(subset=['Name'], keep='last')
  
-hitters_final_df.to_csv('output/hitters.csv', index = False, date_format='%Y-%m-%d %H:%M:%S')
+hitters_final_df.to_csv(os.path.join("Output","hitters.csv"), index = False, date_format='%Y-%m-%d %H:%M:%S')
 #pitchers for MySQL Load
 
 #add timestamp
@@ -51,5 +51,5 @@ pitchers_final_df = pitchers_df[['Name','Tm','W','L','ERA','G','GS','SV','IP','H
 #remove duplicates
 pitchers_final_df = pitchers_final_df.drop_duplicates(subset=['Name'], keep='last')
  
-pitchers_final_df.to_csv('output/pitchers.csv', index = False, date_format='%Y-%m-%d %H:%M:%S')
+pitchers_final_df.to_csv(os.path.join("Output","pitchers.csv"), index = False, date_format='%Y-%m-%d %H:%M:%S')
 print ("Processing Complete")
