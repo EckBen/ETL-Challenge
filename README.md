@@ -36,6 +36,7 @@ The final data model creates distinct FACT tables from each of the data sources 
 - “Combined” unions together pitchers and hitters, joins team name and eliminates unnecessary columns.
 - “Player Sales” joins the “combined” with the ebay player items.
 - “Team sales” joins the “combined” with the ebay team items.
+
 Ultimately the data would be used to determine which team(s) and player(s) have the greatest number of items being sold throughout ebay which we would then stock on our ebay store.  A simple analysis would be to look at the player/team volume trends and stock those items.  Another analysis would be correlating player/team stats with ebay volume and stock/price items where statistics are trending upwards.
 
 ## Data Sources
