@@ -11,12 +11,21 @@ We provide a method that enables potential MLB online store owners for memorabil
 - MySQL
 
 ## Pipeline Usage
-1.	Ensure that all requirements are installed
-2.	Open a terminal session
-3.	Run ‘python Player_Cleaner.py’
-4.	Run ‘python team_scraper.py’
-5.	Run ‘python player_scraper.py’ (Note: This command will take close to an hour to execute. It is recommended to add a slice at 			line 42 to utilize approximately 10-15 players as a sample, instead.)
-6.	Utilize MySQL:
+1. Ensure that all requirements are installed
+2. Open a terminal session
+3. Run ‘python Player_Cleaner.py’
+4. Run ‘python team_scraper.py’
+5. Run ‘python player_scraper.py’ (Note: This command will take close to an hour to execute. It is recommended to add a slice at 	line 42 to utilize approximately 10-15 players as a sample, instead.)
+6. Open MySQL Workbench and open "MLB_SALES-Create-Database"
+7. Import the following table data from .csv files using the Table Data Import Wizard
+	- Resources folder:
+		-Teams.csv: team_dim
+	- Output folder:
+		- hitters.csv: hitters
+		- pitchers.csv: pitchers
+		- PlayerListings.csv: ebay_items_player
+		- TeamListings.csv: ebay_items_team
+8. Open "MLB_Sales-Data-Query" and run queries as explained by comments
 
 ## Narrative/Motivation
 We want to start an online baseball memorabilia/apparel store. In order to be successful, we would like to know what players and teams have items on the market and how hot the market is for each. We do not want to carry stock that will not sell and we only want to sell items from current teams and players.
