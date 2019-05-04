@@ -8,7 +8,7 @@ We provide a method that enables potential MLB online store owners for memorabil
 - Beautiful Soup 4
 - Splinter
 - Chromedriver.exe (For Windows: Ensure this is in the main directory.)
-- MySQL
+- MySQL Workbench
 
 ## Pipeline Usage
 1. Ensure that all requirements are installed
