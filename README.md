@@ -66,3 +66,6 @@ Player_Cleaner.py	Split out name from name id
 4. MLB_SALES-Create-Database
 	- Creates database
 	- Creates views for analysis
+
+## Future Steps
+This pipeline provides a good starting point to begin an informed business the sports memorabilia market for current teams and players. To grow this model it would be useful to include past players and teams to see valuable collectible items. A new data source for historic MLB information would be a good place to find these rosters. We could gain further insight to the market by scraping ebay for sold item data to find average selling prices for different items by player, team, and type. This data would give us an idea of what to sell items for as well as how the past market has been for the item, potenially influencing how and when to sell certain hard to find items.
