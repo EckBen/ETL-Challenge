@@ -58,4 +58,4 @@ for counter, player in enumerate(list(players_df['Name']), 1):
 df = pd.DataFrame(player_results)
 df.head()
 
-df.to_csv(os.path.join('Output','PlayerListings.csv'))
+df.to_csv(os.path.join('Output','player_listings.csv'))

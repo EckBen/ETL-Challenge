@@ -1,7 +1,7 @@
 -- Creation of database for MLB roster and EBAY sales 11:09 AM
--- DROP DATABASE MLB_SALES;
-CREATE DATABASE MLB_SALES;
-USE MLB_SALES;
+-- DROP DATABASE mlb_sales;
+CREATE DATABASE mlb_sales;
+USE mlb_sales;
 
 -- Create team table
 CREATE TABLE teams_dim (
@@ -78,7 +78,7 @@ CREATE TABLE ebay_items_team (
 
 -- Create a View Unioning Pitchers and Hitters
 -- DROP VIEW Combined;
-CREATE VIEW MLB_SALES.Combined
+CREATE VIEW mlb_sales.Combined
 AS 
 select * from (select name, date, team 
 from pitchers 
@@ -87,10 +87,10 @@ select name, date, team from hitters) as c
 LEFT JOIN teams_dim t
 ON c.team = t.team_abbr;
 
-select * from MLB_SALES.Combined;
+select * from mlb_sales.Combined;
 
 -- Join Combined with ebay
-CREATE VIEW MLB_SALES.players_sales
+CREATE VIEW mlb_sales.players_sales
 AS
 SELECT c.name, c.team, c.team_name, e.number_of_listings, c.date 
 FROM Combined c
@@ -102,7 +102,7 @@ select * from players_sales;
 --  +++++++++++++++++++++++++++++++++++++++++
 
 -- Summarize by Team and Combine with EBAY
-CREATE VIEW MLB_SALES.team_sales
+CREATE VIEW mlb_sales.team_sales
 AS
 SELECT c.team, c.team_name, e.number_of_listings, c.date 
 FROM Combined c
@@ -110,4 +110,4 @@ LEFT JOIN ebay_items_team e
 ON c.team_name = e.team_name
 GROUP BY c.date, c.team, c.team_name;
 
-select * from MLB_SALES.team_sales;
+select * from mlb_sales.team_sales;

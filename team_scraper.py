@@ -57,4 +57,4 @@ for team in teams:
 
 # Save results to csv file
 df = pd.DataFrame(team_results)
-df.to_csv(os.path.join('Output','TeamListings.csv'))
+df.to_csv(os.path.join('Output','team_listings.csv'))
