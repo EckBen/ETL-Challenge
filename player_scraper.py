@@ -22,21 +22,26 @@ def souper():
 # Pull current list of teams in MLB
 def team_generator():
     teams_url = 'http://m.mlb.com/teams/'
+    print('Visiting "http://m.mlb.com/teams/"...')
     browser.visit(teams_url)
     mlb_soup = souper()
     team_list = mlb_soup.find_all('h3')
+    if team_list:
+        print('Found list of MLB teams...')
     return team_list
 
 # URL for ebay's sports memorabilia category
 ebay_sm_url = 'https://www.ebay.com/b/Sports-Memorabilia-Fan-Shop-Sports-Cards/64482/bn_1857919'
 
 # Read in lists of players
+print('Reading in data from Output/players.csv')
 players_df = pd.read_csv(os.path.join('Output','players.csv'))
 player_results = []
 
 # Get browser ready for work
 browser = Browser("chrome", headless=True)
 browser.visit(ebay_sm_url)
+print('Visiting http://www.ebay.com/...')
 
 # For each pitcher find the number of listings on ebay
 for counter, player in enumerate(list(players_df['Name']), 1):
@@ -45,8 +50,10 @@ for counter, player in enumerate(list(players_df['Name']), 1):
         browser = Browser('chrome',headless=True)
         browser.visit(ebay_sm_url)
     
+    print('--------------------------------------')
+    print(f'Searching for {player} listings...')
     player_listings = finder(player)
-    
+    print(f'{player_listings} results found')
     results_dict = {
         'player_name':player,
         'number_of_listings':player_listings,
@@ -55,7 +62,7 @@ for counter, player in enumerate(list(players_df['Name']), 1):
     player_results.append(results_dict)
 
 # Save results to csv file
+print('--------------------------------------')
+print('Saving results to Output/player_listings.csv')
 df = pd.DataFrame(player_results)
-df.head()
-
 df.to_csv(os.path.join('Output','player_listings.csv'))
