@@ -18,7 +18,7 @@ We provide a method that enables potential MLB online store owners for memorabil
 5. Run ‘python player_scraper.py’ (Note: This command will take close to an hour to execute. It is recommended to add a slice at 	line 42 to utilize approximately 10-15 players as a sample, instead.)
 6. Open MySQL Workbench and create local connection
 7. Open "mlb_sale_create_database"
-8. Import the following table data from .csv files using the Table Data Import Wizard
+8. Import the following table data from .csv files using the Table Data Import Wizard (i.e. file_name.csv: existing_table_name)
 	- Resources folder:
 		-teams.csv: team_dim
 	- Output folder:

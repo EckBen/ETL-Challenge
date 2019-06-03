@@ -46,23 +46,33 @@ for tagged_team in tagged_teams:
 # Empty list for receiving final team results
 team_results = []
 
-browser.visit(ebay_sm_url)
 print('Visiting http://www.ebay.com/...')
+browser.visit(ebay_sm_url)
 
 # For each player find the number of listings on ebay
 for team in teams:
     print('--------------------------------------')
+    print('--------------------------------------')
     print(f'Searching for {team} listings...')
+    print('--------------------------------------')
+    print('--------------------------------------')
+
     team_listings = finder(team)
+    
+    print('--------------------------------------')
+    print('--------------------------------------')
     print(f'{team_listings} results found')
+
     results_dict = {
         'team_name':team,
         'number_of_listings':team_listings,
         'date_time':datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     }
+    
     team_results.append(results_dict)
 
 # Save results to csv file
+print('--------------------------------------')
 print('--------------------------------------')
 print('Saving results to Output/team_listings.csv')
 df = pd.DataFrame(team_results)

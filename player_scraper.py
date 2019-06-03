@@ -39,9 +39,9 @@ players_df = pd.read_csv(os.path.join('Output','players.csv'))
 player_results = []
 
 # Get browser ready for work
+print('Visiting http://www.ebay.com/...')
 browser = Browser("chrome", headless=True)
 browser.visit(ebay_sm_url)
-print('Visiting http://www.ebay.com/...')
 
 # For each pitcher find the number of listings on ebay
 for counter, player in enumerate(list(players_df['Name']), 1):
@@ -51,17 +51,27 @@ for counter, player in enumerate(list(players_df['Name']), 1):
         browser.visit(ebay_sm_url)
     
     print('--------------------------------------')
+    print('--------------------------------------')
     print(f'Searching for {player} listings...')
+    print('--------------------------------------')
+    print('--------------------------------------')
+    
     player_listings = finder(player)
+    
+    print('--------------------------------------')
+    print('--------------------------------------')
     print(f'{player_listings} results found')
+    
     results_dict = {
         'player_name':player,
         'number_of_listings':player_listings,
         'date_time':datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     }
+    
     player_results.append(results_dict)
 
 # Save results to csv file
+print('--------------------------------------')
 print('--------------------------------------')
 print('Saving results to Output/player_listings.csv')
 df = pd.DataFrame(player_results)
