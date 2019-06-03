@@ -1,21 +1,27 @@
 # Rutgers ETL project – MLB Player Analysis for Potential Online Memorabilia and Apparel Store
 
 ## Summary
-We provide a method that enables potential MLB online store owners for memorabilia and apparel to see what players/teams to have in inventory.  We used baseball-reference.com for MLB player information, mlb.com for a listing of team names, and EBay.com for listings of memorabilia and apparel.  The results from these websites were loaded into a MySQL database for analysis. 
+We provide a method that enables potential MLB online store owners for memorabilia and apparel to see what players/teams to have in inventory.  We used [baseball-reference.com](https://www.baseball-reference.com/players/) for MLB player information, [mlb.com](https://www.mlb.com/team) for a listing of team names, and [EBay.com](https://www.ebay.com/b/Sports-Memorabilia-Fan-Shop-Sports-Cards/64482/bn_1857919) for listings of memorabilia and apparel.  The results from these websites were loaded into a MySQL database for analysis. 
+
 
 ## Requirements
-- pandas
-- Beautiful Soup 4
-- Splinter
+#### Programs
 - Chromedriver.exe (For Windows: Ensure this is in the main directory.)
 - MySQL Workbench
+#### Dependencies
+Run '''pip install -r requirements.txt''' in your virtual environment for these.
+- Beautiful Soup 4
+- pandas
+- PyYAML
+- Splinter
+
 
 ## Pipeline Usage
 1. Ensure that all requirements are installed
 2. Open a terminal session
 3. Run ‘python player_cleaner.py’
 4. Run ‘python team_scraper.py’
-5. Run ‘python player_scraper.py’ (Note: This command will take close to an hour to execute. It is recommended to add a slice at 	line 42 to utilize approximately 10-15 players as a sample, instead.)
+5. Run ‘python player_scraper.py’ (Note: This command will take close to an hour to execute. It is recommended to change the value in config.yaml to run approximately 10-15 players as a sample.)
 6. Open MySQL Workbench and create local connection
 7. Open "mlb_sale_create_database"
 8. Import the following table data from .csv files using the Table Data Import Wizard (i.e. file_name.csv: existing_table_name)

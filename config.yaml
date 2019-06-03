@@ -1,0 +1,5 @@
+---
+# Default value is 0 to run script on full list of players
+# Change default to smaller number (i.e. 10-15) to get a small sample of output
+num_players: 0
+...

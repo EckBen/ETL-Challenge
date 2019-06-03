@@ -1,5 +1,5 @@
 # Import dependencies
-import os, time, datetime
+import os, time, datetime, yaml
 import pandas as pd
 from bs4 import BeautifulSoup
 from splinter import Browser
@@ -43,8 +43,17 @@ print('Visiting http://www.ebay.com/...')
 browser = Browser("chrome", headless=True)
 browser.visit(ebay_sm_url)
 
+# Determine the number of players to search for from config.yaml
+stream = open('config.yaml', 'r')
+yaml_dict = yaml.load(stream)
+num_players = 0
+if yaml_dict['num_players'] == 0:
+    num_players = len(players_df)
+else:
+    num_players = yaml_dict['num_players']
+
 # For each pitcher find the number of listings on ebay
-for counter, player in enumerate(list(players_df['Name']), 1):
+for counter, player in enumerate(list(players_df['Name'][0:num_players]), 1):
     if counter % 100 == 0:
         browser.quit()
         browser = Browser('chrome',headless=True)
